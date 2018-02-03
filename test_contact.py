@@ -21,13 +21,13 @@ class test_contact_group(unittest.TestCase):
         self.open_homepage(wd)
         self.login(wd, username="admin", password ="secret")
         self.wd.implicitly_wait(50)
-        self.add_contact(wd,Contact(first_name="Tania", middle_name="TU", last_name="Ulyanava",
-                 nickname="tatianka", title="QA", company="Solarwinds", address="Minsk RB",
-                 phone_home="80172608247", phone_mobile="80297758679", phone_work="123", fax="123",
-                 email_1="1@gmail.com", email_2="2@gmail.com", email_3="3@gmail.com",
-                 homepage="https://test", birthday_day="", birthday_month="",
-                 birthday_year="1985", anniversary_day="", anniversary_month="", anniversary_year="",
-                 address_2="", phone_home_2="", notes=""))
+        self.add_contact(wd, Contact(first_name="Tania", middle_name="TU", last_name="Ulyanava",
+                         nickname="tatianka", title="QA", company="Solarwinds", address="Minsk RB",
+                         phone_home="80172608247", phone_mobile="80297758679", phone_work="123", fax="123",
+                         email_1="1@gmail.com", email_2="2@gmail.com", email_3="3@gmail.com",
+                         homepage="https://test", birthday_day="", birthday_month="",
+                         birthday_year="1985", anniversary_day="", anniversary_month="", anniversary_year="",
+                         address_2="", phone_home_2="", notes=""))
         self.return_to_contacts(wd)
         self.logout(wd)
 
