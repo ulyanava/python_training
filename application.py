@@ -1,11 +1,12 @@
 from selenium.webdriver.firefox.webdriver import WebDriver
 
+
 class Application:
     # конструктор
     def __init__(self):
-       # инициализация (запуск браузера)
-       self.wd = WebDriver(firefox_binary="C:/Program Files (x86)/Mozilla Firefox/firefox.exe")
-       self.wd.implicitly_wait(90)
+        # инициализация (запуск браузера)
+        self.wd = WebDriver(firefox_binary="C:/Program Files (x86)/Mozilla Firefox/firefox.exe")
+        self.wd.implicitly_wait(90)
 
     #   for FirefoxESR
     #   self.wd = WebDriver(capabilities={"marionette": False},
@@ -65,7 +66,7 @@ class Application:
         wd = self.wd
         wd.find_element_by_xpath("//div/div[4]/div/i/a[2]").click()
 
-    def add_contact(self, contact, group):
+    def add_contact(self, contact):
         wd = self.wd
         wd.find_element_by_link_text("add new").click()
         wd.find_element_by_name("firstname").click()
@@ -115,22 +116,22 @@ class Application:
         wd.find_element_by_name("homepage").click()
         wd.find_element_by_name("homepage").clear()
         wd.find_element_by_name("homepage").send_keys(contact.homepage)
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[16]").is_selected():
+        if not wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[3]").is_selected():
             wd.find_element_by_xpath(contact.birthday_day).click()
         if not wd.find_element_by_xpath("//div[@id='content']/form/select[2]//option[9]").is_selected():
             wd.find_element_by_xpath(contact.birthday_month).click()
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").clear()
         wd.find_element_by_name("byear").send_keys(contact.birthday_year)
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[3]//option[14]").is_selected():
+        if not wd.find_element_by_xpath("//div[@id='content']/form/select[3]//option[4]").is_selected():
             wd.find_element_by_xpath(contact.anniversary_day).click()
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[4]//option[11]").is_selected():
+        if not wd.find_element_by_xpath("//div[@id='content']/form/select[4]//option[8]").is_selected():
             wd.find_element_by_xpath(contact.anniversary_month).click()
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("ayear").clear()
         wd.find_element_by_name("ayear").send_keys(contact.anniversary_year)
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[5]//option[2]").is_selected():
-            wd.find_element_by_xpath(group).click()
+        if not wd.find_element_by_xpath("//div[@id='content']/form/select[5]//option[1]").is_selected():
+            wd.find_element_by_xpath("group").click()
         wd.find_element_by_name("address2").click()
         wd.find_element_by_name("address2").clear()
         wd.find_element_by_name("address2").send_keys(contact.address_2)

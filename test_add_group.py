@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from python_training.group import Group
+
 from python_training.application import Application
+from python_training.group import Group
 
 
 @pytest.fixture
@@ -19,4 +20,3 @@ def test_add_group2(app):
     app.login(username="admin", password="secret")
     app.create_group_form(Group(name="name", header="header", footer="footer"))
     app.logout()
-
