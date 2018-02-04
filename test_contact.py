@@ -22,12 +22,18 @@ class test_contact_group(unittest.TestCase):
         self.login(wd, username="admin", password ="secret")
         self.wd.implicitly_wait(50)
         self.add_contact(wd, Contact(first_name="Tania", middle_name="TU", last_name="Ulyanava",
-                         nickname="tatianka", title="QA", company="Solarwinds", address="Minsk RB",
-                         phone_home="80172608247", phone_mobile="80297758679", phone_work="123", fax="123",
-                         email_1="1@gmail.com", email_2="2@gmail.com", email_3="3@gmail.com",
-                         homepage="https://test", birthday_day="", birthday_month="",
-                         birthday_year="1985", anniversary_day="", anniversary_month="", anniversary_year="",
-                         address_2="", phone_home_2="", notes=""))
+                                     nickname="tatianka", title="QA", company="Solarwinds", address="Minsk RB",
+                                     phone_home="80172608247", phone_mobile="80297758679", phone_work="123", fax="123",
+                                     email_1="1@gmail.com", email_2="2@gmail.com", email_3="3@gmail.com",
+                                     homepage="https://test",
+                                     birthday_day="//div[@id='content']/form/select[1]//option[3]",
+                                     birthday_month="//div[@id='content']/form/select[2]//option[4]",
+                                     birthday_year="1985",
+                                     anniversary_day="",
+                                     anniversary_month="//div[@id='content']/form/select[4]//option[3]",
+                                     anniversary_year="//div[@id='content']/form/select[5]//option[2]",
+                                     address_2="", phone_home_2="", notes=""),
+                                     group="//div[@id='content']/form/select[5]//option[2]")
         self.return_to_contacts(wd)
         self.logout(wd)
 
@@ -37,7 +43,7 @@ class test_contact_group(unittest.TestCase):
     def return_to_contacts(self, wd):
         wd.find_element_by_xpath("//div/div[4]/div/i/a[2]").click()
 
-    def add_contact(self, wd, contact):
+    def add_contact(self, wd, contact, group):
         wd.find_element_by_link_text("add new").click()
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
@@ -100,6 +106,8 @@ class test_contact_group(unittest.TestCase):
         wd.find_element_by_name("ayear").click()
         wd.find_element_by_name("ayear").clear()
         wd.find_element_by_name("ayear").send_keys(contact.anniversary_year)
+        if not wd.find_element_by_xpath("//div[@id='content']/form/select[5]//option[2]").is_selected():
+            wd.find_element_by_xpath(group).click()
         wd.find_element_by_name("address2").click()
         wd.find_element_by_name("address2").clear()
         wd.find_element_by_name("address2").send_keys(contact.address_2)
