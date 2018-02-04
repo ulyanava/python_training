@@ -13,7 +13,7 @@ def is_alert_present(wd):
 
 class test_contact_group(unittest.TestCase):
     def setUp(self):
-        self.wd = WebDriver()
+        self.wd = WebDriver(firefox_binary="C:/Program Files(x86)/Mozilla Firefox/firefox.exe")
         self.wd.implicitly_wait(90)
     
     def test_test_contact_group(self):
