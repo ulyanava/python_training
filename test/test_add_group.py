@@ -1,19 +1,6 @@
 # -*- coding: utf-8 -*-
 
-import pytest
-
-from python_training.fixture.application import Application
 from python_training.model.group import Group
-
-
-@pytest.fixture
-def app(request):
-    # создание объекта типа Application
-    fixture = Application()
-    # разрушение фикстуры
-    request.addfinalizer(fixture.destroy)
-
-    return fixture
 
 
 def test_add_group2(app):
