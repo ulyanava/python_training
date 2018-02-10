@@ -2,8 +2,8 @@
 
 import pytest
 
-from python_training.application import Application
-from python_training.group import Group
+from fixture.application import Application
+from python_training.model.group import Group
 
 
 @pytest.fixture
