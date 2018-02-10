@@ -57,22 +57,6 @@ class ContactHelper:
         wd.find_element_by_name("homepage").click()
         wd.find_element_by_name("homepage").clear()
         wd.find_element_by_name("homepage").send_keys(contact.homepage)
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[1]//option[3]").is_selected():
-            wd.find_element_by_xpath(contact.birthday_day).click()
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[2]//option[9]").is_selected():
-            wd.find_element_by_xpath(contact.birthday_month).click()
-        wd.find_element_by_name("byear").click()
-        wd.find_element_by_name("byear").clear()
-        wd.find_element_by_name("byear").send_keys(contact.birthday_year)
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[3]//option[4]").is_selected():
-            wd.find_element_by_xpath(contact.anniversary_day).click()
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[4]//option[8]").is_selected():
-            wd.find_element_by_xpath(contact.anniversary_month).click()
-        wd.find_element_by_name("ayear").click()
-        wd.find_element_by_name("ayear").clear()
-        wd.find_element_by_name("ayear").send_keys(contact.anniversary_year)
-        if not wd.find_element_by_xpath("//div[@id='content']/form/select[5]//option[1]").is_selected():
-            wd.find_element_by_xpath("group").click()
         wd.find_element_by_name("address2").click()
         wd.find_element_by_name("address2").clear()
         wd.find_element_by_name("address2").send_keys(contact.address_2)
@@ -93,4 +77,4 @@ class ContactHelper:
         wd.find_element_by_xpath("//form[@name='MainForm']/div[2]").click()
         # confirm deletion
         wd.switch_to_alert().accept()
-        #wd.implicitly_wait(90)
+
