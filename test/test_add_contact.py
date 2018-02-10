@@ -10,12 +10,12 @@ def test_test_contact_group(app):
                                phone_home="80172608247",
                                phone_mobile="80297758679", phone_work="123", fax="123",
                                email_1="1@gmail.com", email_2="2@gmail.com", email_3="3@gmail.com",
-                               homepage="https://test", birthday_day="//div[@id='content']/form/select[1]//option[3]",
-                               birthday_month="//div[@id='content']/form/select[2]//option[4]",
-                               birthday_year="1985",
-                               anniversary_day="//div[@id='content']/form/select[3]//option[8]",
-                               anniversary_month="//div[@id='content']/form/select[4]//option[3]",
-                               anniversary_year="2017",
+                               homepage="https://test", birthday_day="",
+                               birthday_month="",
+                               birthday_year="",
+                               anniversary_day="",
+                               anniversary_month="",
+                               anniversary_year="",
                                address_2="", phone_home_2="", notes="",
                                group="//div[@id='content']/form/select[5]//option[1]"))
     app.session.logout()
