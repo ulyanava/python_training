@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 import pytest
+
+from python_training.fixture.application import Application
 from python_training.model.contact import Contact
-from fixture.application import Application
 
 
 @pytest.fixture
@@ -13,7 +14,7 @@ def app(request):
 
 
 def test_test_contact_group(app):
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.add_contact(Contact(first_name="Tania", middle_name="TU", last_name="Ulyanava",
                             nickname="tatianka", title="QA", company="Solarwinds", address="Minsk RB",
                             phone_home="80172608247",
@@ -27,4 +28,4 @@ def test_test_contact_group(app):
                             anniversary_year="2017",
                             address_2="", phone_home_2="", notes="",
                             group="//div[@id='content']/form/select[5]//option[1]"))
-    app.logout()
+    app.session.logout()

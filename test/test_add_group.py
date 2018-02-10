@@ -2,7 +2,7 @@
 
 import pytest
 
-from fixture.application import Application
+from python_training.fixture.application import Application
 from python_training.model.group import Group
 
 
@@ -17,6 +17,6 @@ def app(request):
 
 
 def test_add_group2(app):
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.create_group_form(Group(name="name", header="header", footer="footer"))
-    app.logout()
+    app.session.logout()
